@@ -119,4 +119,8 @@
     <string name="recents_task_lock">Lock</string>
     <string name="recents_task_unlock">Unlock</string>
 
+    <!-- Icon pack category value -->
+    <string name="icon_pack_category_title">Customize icon pack</string>
+    <string name="icon_pack_title">Icon pack</string>
+    <string name="pref_value_default">Default</string>
 </resources>

@@ -202,4 +202,15 @@
         android:title="@string/developer_options_title"
         android:fragment="com.android.launcher3.settings.DeveloperOptionsFragment"/>-->
 
+    <PreferenceCategory
+        android:key="pref_cat_icon_pack"
+        android:title="@string/icon_pack_category_title">
+
+        <com.android.launcher3.settings.preference.ReloadingListPreference
+            android:key="pref_icon_pack"
+            android:title="@string/icon_pack_title"
+            android:persistent="true" />
+
+    </PreferenceCategory>
+
 </androidx.preference.PreferenceScreen>
