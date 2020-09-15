@@ -158,7 +158,7 @@ public final class FeatureFlags {
             "ENABLE_WIDGETS_PICKER_AIAI_SEARCH", false, "Enable AiAi search in the widgets picker");
 
     public static final BooleanFlag ENABLE_OVERVIEW_SHARE = getDebugFlag(
-            "ENABLE_OVERVIEW_SHARE", false, "Show Share button in Overview Actions");
+            "ENABLE_OVERVIEW_SHARE", true, "Show Share button in Overview Actions");
 
     public static final BooleanFlag ENABLE_OVERVIEW_SHARING_TO_PEOPLE = getDebugFlag(
             "ENABLE_OVERVIEW_SHARING_TO_PEOPLE", true,
