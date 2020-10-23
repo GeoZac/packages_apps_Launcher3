@@ -2209,7 +2209,7 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
     }
 
     private void addDismissedTaskAnimations(TaskView taskView, long duration,
-            PendingAnimation anim) {
+            PendingAnimation anim, boolean goingUp) {
         // Use setFloat instead of setViewAlpha as we want to keep the view visible even when it's
         // alpha is set to 0 so that it can be recycled in the view pool properly
         anim.setFloat(taskView, VIEW_ALPHA, 0, clampToProgress(ACCEL, 0, 0.5f));
@@ -2250,8 +2250,13 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
         }
         // Double translation distance so dismissal drag is the full height, as we only animate
         // the drag for the first half of the progress.
-        anim.add(ObjectAnimator.ofFloat(taskView, dismissingTaskViewTranslate,
-                positiveNegativeFactor * translateDistance * 2).setDuration(duration), LINEAR, sp);
+        if (goingUp) {
+            anim.add(ObjectAnimator.ofFloat(taskView, dismissingTaskViewTranslate,
+                    positiveNegativeFactor * translateDistance * 2).setDuration(duration), LINEAR, sp);
+        } else if (getSwipeForClearAllState()) {
+            anim.add(ObjectAnimator.ofFloat(taskView, dismissingTaskViewTranslate,
+                    -positiveNegativeFactor * translateDistance * 2).setDuration(duration), LINEAR, sp);
+        }
 
         if (ENABLE_QUICKSTEP_LIVE_TILE.get() && mEnableDrawingLiveTile
                 && taskView.isRunningTask()) {
@@ -2298,7 +2303,7 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
             View child = getChildAt(i);
             if (child == taskView) {
                 if (animateTaskView) {
-                    addDismissedTaskAnimations(taskView, duration, anim);
+                    addDismissedTaskAnimations(taskView, duration, anim, true);
                 }
             } else if (!showAsGrid()) {
                 // Compute scroll offsets from task dismissal for animation.
@@ -2502,7 +2507,7 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
 
         int count = getTaskViewCount();
         for (int i = 0; i < count; i++) {
-            addDismissedTaskAnimations(getTaskViewAt(i), duration, anim);
+            addDismissedTaskAnimations(getTaskViewAt(i), duration, anim, false);
         }
 
         mPendingAnimation = anim;
@@ -3636,6 +3641,10 @@ public abstract class RecentsView<ACTIVITY_TYPE extends StatefulActivity<STATE_T
             // mFullscreenProgress.
             requestLayout();
         }
+    }
+
+    public boolean getSwipeForClearAllState() {
+        return Utilities.getPrefs(mActivity).getBoolean("pref_allowSwipeDownClearAll", false);
     }
 
     /**

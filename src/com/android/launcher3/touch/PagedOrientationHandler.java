@@ -148,8 +148,13 @@ public interface PagedOrientationHandler {
     SingleAxisSwipeDetector.Direction getUpDownSwipeDirection();
     /** @return Given {@link #getUpDownSwipeDirection()}, whether POSITIVE or NEGATIVE is up. */
     int getUpDirection(boolean isRtl);
+    /** @return Given {@link #getUpDownSwipeDirection()}, whether POSITIVE or NEGATIVE is down. */
+    int getDownDirection(boolean isRtl);
     /** @return Whether the displacement is going towards the top of the screen. */
     boolean isGoingUp(float displacement, boolean isRtl);
+    /** @return Whether the displacement is going towards the bottom of the screen. */
+    boolean isGoingDown(float displacement, boolean isRtl);
+
     /** @return Either 1 or -1, a factor to multiply by so the animation goes the correct way. */
     int getTaskDragDisplacementFactor(boolean isRtl);
 

@@ -64,6 +64,7 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
 
     private AnimatorPlaybackController mCurrentAnimation;
     private boolean mCurrentAnimationIsGoingUp;
+    private boolean mCurrentAnimationIsGoingDown;
     private boolean mAllowGoingUp;
     private boolean mAllowGoingDown;
 
@@ -158,12 +159,15 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
                         mTaskBeingDragged = view;
                         int upDirection = mRecentsView.getPagedOrientationHandler()
                                 .getUpDirection(mIsRtl);
+                        int downDirection = mRecentsView.getPagedOrientationHandler()
+                                .getDownDirection(mIsRtl);
                         if (!SysUINavigationMode.getMode(mActivity).hasGestures || (
                                 mActivity.getDeviceProfile().isTablet
                                         && FeatureFlags.ENABLE_OVERVIEW_GRID.get())) {
                             // Don't allow swipe down to open if we don't support swipe up
                             // to enter overview, or when grid layout is enabled.
-                            directionsToDetectScroll = upDirection;
+                            directionsToDetectScroll = getSwipeForClearAllState()
+                                ? DIRECTION_BOTH : upDirection;
                             mAllowGoingUp = true;
                             mAllowGoingDown = false;
                         } else {
@@ -204,8 +208,8 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
         return mDetector.onTouchEvent(ev);
     }
 
-    private void reInitAnimationController(boolean goingUp) {
-        if (mCurrentAnimation != null && mCurrentAnimationIsGoingUp == goingUp) {
+    private void reInitAnimationController(boolean goingUp, boolean goingDown) {
+        if (mCurrentAnimation != null && (mCurrentAnimationIsGoingUp == goingUp || mCurrentAnimationIsGoingDown == goingDown)) {
             // No need to init
             return;
         }
@@ -221,6 +225,7 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
 
         PagedOrientationHandler orientationHandler = mRecentsView.getPagedOrientationHandler();
         mCurrentAnimationIsGoingUp = goingUp;
+        mCurrentAnimationIsGoingDown = goingDown;
         BaseDragLayer dl = mActivity.getDragLayer();
         final int secondaryLayerDimension = orientationHandler.getSecondaryDimension(dl);
         long maxDuration = 2 * secondaryLayerDimension;
@@ -236,6 +241,11 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
                     true /* animateTaskView */, true /* removeTask */, maxDuration);
 
             mEndDisplacement = -secondaryTaskDimension;
+        } else if (goingDown && getSwipeForClearAllState()) {
+            currentInterpolator = Interpolators.LINEAR;
+            pa = mRecentsView.createAllTasksDismissAnimation(maxDuration);
+
+            mEndDisplacement = -mTaskBeingDragged.getHeight();
         } else {
             currentInterpolator = Interpolators.ZOOM_IN;
             pa = mRecentsView.createTaskLaunchAnimation(
@@ -263,7 +273,8 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
     public void onDragStart(boolean start, float startDisplacement) {
         PagedOrientationHandler orientationHandler = mRecentsView.getPagedOrientationHandler();
         if (mCurrentAnimation == null) {
-            reInitAnimationController(orientationHandler.isGoingUp(startDisplacement, mIsRtl));
+            reInitAnimationController(orientationHandler.isGoingUp(startDisplacement, mIsRtl),
+                  orientationHandler.isGoingDown(startDisplacement, mIsRtl));
             mDisplacementShift = 0;
         } else {
             mDisplacementShift = mCurrentAnimation.getProgressFraction() / mProgressMultiplier;
@@ -279,8 +290,13 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
         float totalDisplacement = displacement + mDisplacementShift;
         boolean isGoingUp = totalDisplacement == 0 ? mCurrentAnimationIsGoingUp :
                 orientationHandler.isGoingUp(totalDisplacement, mIsRtl);
+        boolean isGoingDown = totalDisplacement == 0 ? mCurrentAnimationIsGoingDown :
+                orientationHandler.isGoingDown(totalDisplacement, mIsRtl);
         if (isGoingUp != mCurrentAnimationIsGoingUp) {
-            reInitAnimationController(isGoingUp);
+            reInitAnimationController(isGoingUp, isGoingDown);
+            mFlingBlockCheck.blockFling();
+        } else if (isGoingDown != mCurrentAnimationIsGoingDown && getSwipeForClearAllState()) {
+            reInitAnimationController(isGoingUp, isGoingDown);
             mFlingBlockCheck.blockFling();
         } else {
             mFlingBlockCheck.onEvent();
@@ -343,7 +359,14 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
         float interpolatedProgress = mCurrentAnimation.getInterpolatedProgress();
         if (fling) {
             boolean goingUp = orientationHandler.isGoingUp(velocity, mIsRtl);
-            goingToEnd = goingUp == mCurrentAnimationIsGoingUp;
+            boolean goingDown = orientationHandler.isGoingDown(velocity, mIsRtl);
+            if (goingUp) {
+                goingToEnd = goingUp == mCurrentAnimationIsGoingUp;
+            } else if (getSwipeForClearAllState()) {
+                goingToEnd = goingDown == mCurrentAnimationIsGoingDown;
+            } else {
+                goingToEnd = mCurrentAnimation.getProgressFraction() > SUCCESS_TRANSITION_PROGRESS;
+            }
         } else {
             goingToEnd = interpolatedProgress > SUCCESS_TRANSITION_PROGRESS;
         }
@@ -369,5 +392,9 @@ public abstract class TaskViewTouchController<T extends BaseDraggingActivity>
         mDetector.setDetectableScrollConditions(0, false);
         mTaskBeingDragged = null;
         mCurrentAnimation = null;
+    }
+
+    private boolean getSwipeForClearAllState() {
+        return mRecentsView.getSwipeForClearAllState();
     }
 }

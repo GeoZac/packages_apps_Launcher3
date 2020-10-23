@@ -314,8 +314,19 @@ public class LandscapePagedViewHandler implements PagedOrientationHandler {
     }
 
     @Override
+    public int getDownDirection(boolean isRtl) {
+        return isRtl ? SingleAxisSwipeDetector.DIRECTION_POSITIVE
+                : SingleAxisSwipeDetector.DIRECTION_NEGATIVE;
+    }
+
+    @Override
     public boolean isGoingUp(float displacement, boolean isRtl) {
         return isRtl ? displacement < 0 : displacement > 0;
+    }
+
+    @Override
+    public boolean isGoingDown(float displacement, boolean isRtl) {
+        return isRtl ? displacement > 0 : displacement < 0;
     }
 
     @Override

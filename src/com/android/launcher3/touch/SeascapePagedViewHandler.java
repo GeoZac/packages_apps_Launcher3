@@ -128,8 +128,19 @@ public class SeascapePagedViewHandler extends LandscapePagedViewHandler {
     }
 
     @Override
+    public int getDownDirection(boolean isRtl) {
+        return isRtl ? SingleAxisSwipeDetector.DIRECTION_NEGATIVE
+                : SingleAxisSwipeDetector.DIRECTION_POSITIVE;
+    }
+
+    @Override
     public boolean isGoingUp(float displacement, boolean isRtl) {
         return isRtl ? displacement > 0 : displacement < 0;
+    }
+
+    @Override
+    public boolean isGoingDown(float displacement, boolean isRtl) {
+        return isRtl ? displacement < 0 : displacement > 0;
     }
 
     @Override
