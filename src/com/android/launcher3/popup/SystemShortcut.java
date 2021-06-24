@@ -1,5 +1,7 @@
 package com.android.launcher3.popup;
 
+import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT;
+import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_APP_INFO_TAP;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_WIDGETS_TAP;
 
@@ -254,8 +256,10 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
         if (itemInfo.getTargetComponent() == null) {
             return null;
         }
-        if (PackageManagerHelper.isSystemApp(activity,
-             itemInfo.getTargetComponent().getPackageName())) {
+        if (itemInfo.itemType == ITEM_TYPE_DEEP_SHORTCUT ||
+            itemInfo.itemType == ITEM_TYPE_SHORTCUT ||
+            PackageManagerHelper.isSystemApp(activity,
+                 itemInfo.getTargetComponent().getPackageName())) {
             return null;
         }
         return new UnInstall(activity, itemInfo);
