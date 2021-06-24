@@ -1,7 +1,5 @@
 package com.android.launcher3.popup;
 
-import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT;
-import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_APP_INFO_TAP;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_WIDGETS_TAP;
 
@@ -118,6 +116,9 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
 
     public static final Factory<Launcher> WIDGETS = (launcher, itemInfo, originalView) -> {
         if (itemInfo.getTargetComponent() == null) return null;
+        if (PackageManagerHelper.isShortcut(itemInfo)) {
+            return null;
+        }
         final List<WidgetItem> widgets =
                 launcher.getPopupDataProvider().getWidgetsForPackageUser(new PackageUserKey(
                         itemInfo.getTargetComponent().getPackageName(), itemInfo.user));
@@ -250,8 +251,7 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
         if (itemInfo.getTargetComponent() == null) {
             return null;
         }
-        if (itemInfo.itemType == ITEM_TYPE_DEEP_SHORTCUT ||
-            itemInfo.itemType == ITEM_TYPE_SHORTCUT ||
+        if (PackageManagerHelper.isShortcut(itemInfo) ||
             PackageManagerHelper.isSystemApp(activity,
                  itemInfo.getTargetComponent().getPackageName())) {
             return null;
