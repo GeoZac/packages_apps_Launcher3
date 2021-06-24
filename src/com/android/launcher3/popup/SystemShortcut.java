@@ -6,6 +6,8 @@ import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCH
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_DONT_SUGGEST_APP_TAP;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SYSTEM_SHORTCUT_WIDGETS_TAP;
 import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_APPLICATION;
+import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT;
+import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT;
 import static com.android.launcher3.LauncherSettings.Favorites.ITEM_TYPE_TASK;
 
 import android.app.ActivityOptions;
@@ -390,6 +392,8 @@ public abstract class SystemShortcut<T extends ActivityContext> extends ItemInfo
 
     public static final Factory<ActivityContext> UNINSTALL = (activity, itemInfo, originalView) ->
             itemInfo.getTargetComponent() == null ||
+                    itemInfo.itemType == ITEM_TYPE_DEEP_SHORTCUT ||
+                    itemInfo.itemType == ITEM_TYPE_SHORTCUT ||
                     PackageManagerHelper.isSystemApp((Context) activity,
                     itemInfo.getTargetComponent().getPackageName())
                     ? null : new UnInstall(activity, itemInfo, originalView);
