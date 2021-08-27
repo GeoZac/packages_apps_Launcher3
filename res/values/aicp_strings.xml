@@ -21,4 +21,7 @@
     <string name="recent_task_option_kill_app">Kill</string>
     <string name="recents_app_killed">App killed</string>
 
+    <!-- Recents task locking -->
+    <string name="recents_task_lock">Lock</string>
+    <string name="recents_task_unlock">Unlock</string>
 </resources>
