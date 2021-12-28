@@ -63,13 +63,6 @@
         android:key="pref_enable_minus_one"
         android:summary="@string/pref_show_google_now_summary"
         android:title="@string/title_show_google_app"/>
-        
-    <SwitchPreference
-        android:key="pref_dt_gesture"
-        android:title="@string/pref_dt_gesture_title"
-        android:summary="@string/pref_dt_gesture_summary"
-        android:defaultValue="true"
-        android:persistent="true"/>
 
     <Preference
         android:key="pref_developer_options"
@@ -89,11 +82,24 @@
         android:defaultValue="true"
         android:persistent="true" />
 
-    <SwitchPreference
-        android:key="pref_allowSwipeDownClearAll"
-        android:title="@string/allow_swipe_down_clearall_title"
-        android:summary="@string/allow_swipe_down_clearall_desc"
-        android:defaultValue="@bool/allow_swipe_down_clearall"
-        android:persistent="true" />
+    <PreferenceCategory
+            android:key="gestures_category"
+            android:title="@string/gestures_category">
+
+        <SwitchPreference
+            android:key="pref_allowSwipeDownClearAll"
+            android:title="@string/allow_swipe_down_clearall_title"
+            android:summary="@string/allow_swipe_down_clearall_desc"
+            android:defaultValue="@bool/allow_swipe_down_clearall"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_dt_gesture"
+            android:title="@string/pref_dt_gesture_title"
+            android:summary="@string/pref_dt_gesture_summary"
+            android:defaultValue="true"
+            android:persistent="true"/>
+
+    </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

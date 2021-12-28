@@ -130,8 +130,6 @@ public final class Utilities {
      */
     public static final int EDGE_NAV_BAR = 1 << 8;
 
-    public static final String KEY_DT_GESTURE = "pref_dt_gesture";
-
     /**
      * Indicates if the device has a debug build. Should only be used to store additional info or
      * add extra logging and not for changing the app behavior.
@@ -861,7 +859,7 @@ public final class Utilities {
 
     public static boolean isDoubleTapGestureEnabled(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
-        return prefs.getBoolean(KEY_DT_GESTURE, true);
+        return prefs.getBoolean(InvariantDeviceProfile.KEY_DT_GESTURE, true);
     }
 
     public static boolean isWorkspaceEditAllowed(Context context) {
