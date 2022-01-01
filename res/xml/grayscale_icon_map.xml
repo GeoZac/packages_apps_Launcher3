@@ -179,6 +179,7 @@
     <icon drawable="@drawable/themed_icon_mtmanager" package="bin.mt.plus.canary" />
     <icon drawable="@drawable/themed_icon_chrome" package="com.chrome.canary" />
     <icon drawable="@drawable/themed_icon_camera" package="com.android.MGC.not.stable" />
+    <icon drawable="@drawable/themed_icon_camera" package="com.oneplus.camera" />
     <icon drawable="@drawable/themed_icon_telegram" package="org.telegram.messenger.web" />
     <icon drawable="@drawable/themed_icon_gapo" package="vn.gapo.app" />
     <icon drawable="@drawable/themed_icon_arena_of_valor" package="com.garena.game.kgvn" />
