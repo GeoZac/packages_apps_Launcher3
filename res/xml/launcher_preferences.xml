@@ -20,17 +20,33 @@
 
     <SwitchPreference
         android:defaultValue="true"
-        android:key="pref_workspace_edit"
-        android:persistent="true"
-        android:title="@string/settings_edit_allow_title"
-        android:summaryOn="@string/settings_edit_allow_summary_on"
-        android:summaryOff="@string/settings_edit_allow_summary_off" />
+        android:key="pref_enable_minus_one"
+        android:summary="@string/pref_show_google_now_summary"
+        android:title="@string/title_show_google_app"/>
 
-    <com.android.launcher3.settings.NotificationDotsPreference
-        android:key="pref_icon_badging"
-        android:title="@string/notification_dots_title"
+    <Preference
+        android:key="pref_developer_options"
         android:persistent="false"
-        android:widgetLayout="@layout/notification_pref_warning" />
+        android:title="Developer Options"
+        android:fragment="com.android.launcher3.settings.DeveloperOptionsFragment"/>
+
+    <PreferenceCategory
+        android:key="icons_category"
+        android:title="@string/icons_category">
+
+        <SwitchPreference
+            android:key="pref_desktop_show_labels"
+            android:title="@string/desktop_show_labels"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_drawer_show_labels"
+            android:title="@string/drawer_show_labels"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+    </PreferenceCategory>
 
     <!--
       LAUNCHER_ADD_NEW_APPS_TO_HOME_SCREEN_ENABLED(613)
@@ -45,46 +61,23 @@
         launcher:logIdOn="613"
         launcher:logIdOff="614" />
 
-    <!--
-      LAUNCHER_HOME_SCREEN_ROTATION_ENABLED(615)
-      LAUNCHER_HOME_SCREEN_ROTATION_DISABLED(616)
-    -->
     <SwitchPreference
-        android:key="pref_allowRotation"
-        android:title="@string/allow_rotation_title"
-        android:summary="@string/allow_rotation_desc"
-        android:defaultValue="false"
+        android:defaultValue="true"
+        android:key="pref_workspace_edit"
         android:persistent="true"
-        launcher:logIdOn="615"
-        launcher:logIdOff="616" />
+        android:title="@string/settings_edit_allow_title"
+        android:summaryOn="@string/settings_edit_allow_summary_on"
+        android:summaryOff="@string/settings_edit_allow_summary_off" />
 
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="pref_enable_minus_one"
-        android:summary="@string/pref_show_google_now_summary"
-        android:title="@string/title_show_google_app"/>
-
-    <Preference
-        android:key="pref_developer_options"
+    <com.android.launcher3.settings.NotificationDotsPreference
+        android:key="pref_icon_badging"
+        android:title="@string/notification_dots_title"
         android:persistent="false"
-        android:title="Developer Options"
-        android:fragment="com.android.launcher3.settings.DeveloperOptionsFragment"/>
-
-    <SwitchPreference
-        android:key="pref_desktop_show_labels"
-        android:title="@string/desktop_show_labels"
-        android:defaultValue="true"
-        android:persistent="true" />
-
-    <SwitchPreference
-        android:key="pref_drawer_show_labels"
-        android:title="@string/drawer_show_labels"
-        android:defaultValue="true"
-        android:persistent="true" />
+        android:widgetLayout="@layout/notification_pref_warning" />
 
     <PreferenceCategory
-            android:key="gestures_category"
-            android:title="@string/gestures_category">
+        android:key="gestures_category"
+        android:title="@string/gestures_category">
 
         <SwitchPreference
             android:key="pref_allowSwipeDownClearAll"
@@ -101,5 +94,18 @@
             android:persistent="true"/>
 
     </PreferenceCategory>
+
+    <!--
+      LAUNCHER_HOME_SCREEN_ROTATION_ENABLED(615)
+      LAUNCHER_HOME_SCREEN_ROTATION_DISABLED(616)
+    -->
+    <SwitchPreference
+        android:key="pref_allowRotation"
+        android:title="@string/allow_rotation_title"
+        android:summary="@string/allow_rotation_desc"
+        android:defaultValue="false"
+        android:persistent="true"
+        launcher:logIdOn="615"
+        launcher:logIdOff="616" />
 
 </androidx.preference.PreferenceScreen>
