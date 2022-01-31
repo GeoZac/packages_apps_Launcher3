@@ -228,4 +228,7 @@
     <icon drawable="@drawable/themed_icon_clock" package="com.android.deskclock" />
     <icon drawable="@drawable/themed_icon_chrome" package="org.lineageos.jelly" />
     <icon drawable="@drawable/themed_icon_calculator" package="com.android.calculator2" />
+
+    <!--AICP Specific -->
+    <icon drawable="@drawable/themed_icon_aextras" package="com.aicp.extras" />
 </icons>
