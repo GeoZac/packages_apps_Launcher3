@@ -98,6 +98,7 @@ public class SessionCommitReceiver extends BroadcastReceiver {
     }
 
     public static boolean isEnabled(Context context) {
-        return Utilities.getPrefs(context).getBoolean(ADD_ICON_PREFERENCE_KEY, true);
+        return Utilities.getPrefs(context).getBoolean(ADD_ICON_PREFERENCE_KEY,
+            context.getResources().getBoolean(R.bool.auto_add_shortcuts_to_home));
     }
 }

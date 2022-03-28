@@ -20,7 +20,7 @@
         android:key="pref_add_icon_to_home"
         android:title="@string/auto_add_shortcuts_label"
         android:summary="@string/auto_add_shortcuts_description"
-        android:defaultValue="true"  />
+        android:defaultValue="@bool/auto_add_shortcuts_to_home"  />
 
     <SwitchPreference
         android:key="pref_allowRotation"
