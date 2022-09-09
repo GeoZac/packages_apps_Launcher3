@@ -383,7 +383,8 @@ public interface TaskShortcutFactory {
 
         public KillSystemShortcut(BaseDraggingActivity activity,
                 TaskIdAttributeContainer taskContainer, String packageName) {
-            super(R.drawable.ic_kill_app, R.string.recent_task_option_kill_app, activity, taskContainer.getItemInfo());
+            super(R.drawable.ic_kill_app, R.string.recent_task_option_kill_app, activity,
+                    taskContainer.getItemInfo(), taskContainer.getTaskView());
             mTaskView = taskContainer.getTaskView();
             mActivity = activity;
             mPackageName = packageName;
