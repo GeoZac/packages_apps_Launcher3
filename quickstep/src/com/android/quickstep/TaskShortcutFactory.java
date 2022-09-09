@@ -95,7 +95,8 @@ public interface TaskShortcutFactory {
     TaskShortcutFactory UNINSTALL = (activity, view) ->
             PackageManagerHelper.isSystemApp(activity,
                  view.getTask().getTopComponent().getPackageName())
-                    ? null : new SystemShortcut.UnInstall(activity, view.getItemInfo());
+                    ? null : new SystemShortcut.UnInstall(activity, view.getItemInfo(),
+                    view.getTaskView());
 
     abstract class MultiWindowFactory implements TaskShortcutFactory {
 

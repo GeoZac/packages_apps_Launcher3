@@ -247,7 +247,7 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
         }
     }
 
-    public static final Factory<BaseDraggingActivity> UNINSTALL = (activity, itemInfo) -> {
+    public static final Factory<BaseDraggingActivity> UNINSTALL = (activity, itemInfo, originalView) -> {
         if (itemInfo.getTargetComponent() == null) {
             return null;
         }
@@ -256,14 +256,14 @@ public abstract class SystemShortcut<T extends Context & ActivityContext> extend
                  itemInfo.getTargetComponent().getPackageName())) {
             return null;
         }
-        return new UnInstall(activity, itemInfo);
+        return new UnInstall(activity, itemInfo, originalView);
     };
 
     public static class UnInstall extends SystemShortcut<BaseDraggingActivity> {
 
-        public UnInstall(BaseDraggingActivity target, ItemInfo itemInfo) {
+        public UnInstall(BaseDraggingActivity target, ItemInfo itemInfo, View originalView) {
             super(R.drawable.ic_uninstall_no_shadow, R.string.uninstall_drop_target_label,
-                    target, itemInfo);
+                    target, itemInfo, originalView);
         }
 
         @Override
