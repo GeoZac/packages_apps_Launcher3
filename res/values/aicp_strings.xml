@@ -45,11 +45,12 @@
     <string name="pref_show_google_now_summary" translatable="false">@string/msg_minus_one_on_left</string>
 
     <!-- Hotseat searchbar -->
+    <string name="search_bar_category_title">Search bar</string>
     <string name="label_search">Search</string>
     <string name="label_lens">Google Lens</string>
     <string name="label_voice_search">Voice search</string>
     <string name="dock_search_title">Google search bar</string>
-    <string name="dock_search_summary">Show search bar in the bottom dock</string>
+    <string name="dock_search_summary">Search bar in the bottom dock</string>
     <string name="dock_theme_title">Themed icons</string>
     <string name="dock_theme_summary">Use themed icons for search bar</string>
     <string name="search_radius_title">Corner radius</string>
