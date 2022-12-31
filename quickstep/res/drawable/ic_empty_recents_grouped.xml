@@ -23,7 +23,7 @@ Copyright (C) 2018 The Android Open Source Project
         android:name="handle_1_">
         <path
             android:name="metal"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.6"
             android:strokeAlpha="0.6"
             android:pathData="M256.8,178l145.3-79.4L396.3,88l-145.6,79.6c-9-9.7-23.8-11.4-34.8-4c-12.4,8.3-15.7,25.1-7.4,37.5
@@ -34,33 +34,33 @@ C238.7,206.5,234.8,207.6,230.9,207.6z
 M250.3,195.8l-9.2-9.2l10.9-5.9C253.2,185.7,252.7,191.1,250.3,195.8z" />
         <path
             android:name="circle"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M231,170c-8.8,0-16,7.2-16,16s7.2,16,16,16s16-7.2,16-16S239.8,170,231,170z
 M231,194 c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S235.4,194,231,194z" />
         <path
             android:name="stand_x5F_top"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M359,333v-14c0-2.8-2.2-5-5-5h-15c-2.8,0-5,2.2-5,5v14H359z" />
         <path
             android:name="stand"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.6"
             android:strokeAlpha="0.6"
             android:pathData="M416.5,345c-1.8-6.9-8-12-15.5-12h-87c-7.5,0-13.7,5.1-15.5,12H416.5z" />
         <path
             android:name="paper"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.5"
             android:strokeAlpha="0.5"
             android:pathData="M328,352c-7.7,0-14,6.3-14,14s6.3,14,14,14h106v-28H328z" />
         <path
             android:name="hard_cover"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M307,366c0,11.6,9.4,21,21,21l0,0h-52c-11.6,0-21-9.4-21-21s9.4-21,21-21h52
 C316.4,345,307,354.4,307,366z" />
         <path
             android:name="edges"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M434.5,352H328c-7.7,0-14,6.3-14,14s6.3,14,14,14h106.5c1.9,0,3.5,1.6,3.5,3.5s-1.6,3.5-3.5,3.5
@@ -80,17 +80,17 @@ c25.2,12.5,42.2,35.9,42.1,62.8C662.9,195.8,662.8,197.4,662.7,199z" />
 
             <path
                 android:name="light"
-                android:fillColor="#FFFFFF"
+                android:fillColor="?android:attr/textColorPrimary"
                 android:fillAlpha="0.5"
                 android:strokeAlpha="0.5"
                 android:pathData="M383,142l77-44l729,611.4L490.9,810.6L383,142z" />
             <path
                 android:name="tip"
-                android:fillColor="#FFFFFF"
+                android:fillColor="?android:attr/textColorPrimary"
                 android:pathData="M379.9,56l6.1-3.5l-2.4-4.2c-1-1.7-3.1-2.2-4.8-1.3c-1.7,1-2.2,3.1-1.3,4.8L379.9,56z" />
             <path
                 android:name="holes"
-                android:fillColor="#FFFFFF"
+                android:fillColor="?android:attr/textColorPrimary"
                 android:fillAlpha="0.9"
                 android:strokeAlpha="0.9"
                 android:pathData="M397,83c7.2-4,14.3-5.6,21.1-5.5l-13.9-24c-2.8-4.8-8.9-6.4-13.7-3.7l-15.6,9
@@ -103,34 +103,34 @@ M376.5,67.4C376.5,67.4,376.5,67.4,376.5,67.4c0.7-0.4,1.6-0.2,2,0.5l8.5,14.7
 c0.4,0.7,0.2,1.6-0.5,2c-0.7,0.4-1.6,0.2-2.1-0.5l-8.5-14.7C375.5,68.8,375.8,67.8,376.5,67.4z" />
             <path
                 android:name="head_1_"
-                android:fillColor="#FFFFFF"
+                android:fillColor="?android:attr/textColorPrimary"
                 android:pathData="M386,160l87-50c0,0-37.4-48.5-76-27S386,160,386,160z" />
         </group>
     </group>
     <path
         android:name="hands_1_"
-        android:fillColor="#FFFFFF"
+        android:fillColor="?android:attr/textColorPrimary"
         android:pathData="M713,274c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S722.4,274,713,274z
 M447,274 c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S456.4,274,447,274z" />
     <group
         android:name="android_1_">
         <path
             android:name="a2_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M672.9,289.5L672.9,289.5c0,0.4,0.1,0.7,0.3,0.9c0.3,0.2,0.6,0.3,0.9,0.3
 c0.3,0.1,0.7,0,1-0.2s0.5-0.4,0.7-0.7v-1.6h-0.9C673.7,288.2,673,288.6,672.9,289.5z" />
         <path
             android:name="p2_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M644.8,306.5c-0.6-0.1-1.3,0.3-1.6,0.9v3.9c0.3,0.6,1,1,1.7,0.9c1.2,0,1.8-1,1.8-2.9
 c0-0.8-0.2-1.5-0.5-2.1C645.9,306.8,645.4,306.5,644.8,306.5z" />
         <path
             android:name="o2_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M666.5,307.2c-0.4-0.4-0.9-0.7-1.5-0.7c-0.5,0-1.1,0.2-1.4,0.7c-0.4,0.7-0.6,1.4-0.5,2.3
@@ -138,14 +138,14 @@ c-0.1,0.8,0.1,1.5,0.5,2.1c0.1,0.1,0.2,0.2,0.3,0.3c0.8,0.6,2,0.5,2.6-0.3c0.4-0.7,
 C667.1,308.5,666.9,307.8,666.5,307.2z" />
         <path
             android:name="r_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M629.6,303.4h-2v3.8h2.1c0.5,0,1.1-0.1,1.5-0.5c0.3-0.4,0.5-0.9,0.5-1.4s-0.1-1-0.5-1.4
 C630.7,303.5,630.2,303.4,629.6,303.4z" />
         <path
             android:name="o_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M622.3,285.6c-0.4-0.4-0.9-0.7-1.5-0.7c-0.5,0-1.1,0.2-1.4,0.7c-0.3,0.7-0.5,1.4-0.5,2.3
@@ -153,7 +153,7 @@ c-0.1,0.8,0.1,1.5,0.5,2.1c0.1,0.1,0.2,0.2,0.3,0.3c0.8,0.6,2,0.5,2.6-0.3c0.4-0.7,
 C622.9,286.9,622.7,286.2,622.3,285.6z" />
         <path
             android:name="right"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M704,203H590v184h114c5.5,0,10-4.5,10-10V213C714,207.5,709.5,203,704,203z
@@ -204,37 +204,37 @@ M697.8,292.4h-2.5v-6c0-0.4-0.1-0.9-0.4-1.2s-0.8-0.4-1.2-0.4c-0.6,0-1.3,0.3-1.6,0
 c0.6-0.8,1.5-1.2,2.5-1.2c2,0,3.1,1.2,3.1,3.6V292.4z" />
         <path
             android:name="e_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M685.3,306.4c-0.4,0-0.9,0.2-1.2,0.5c-0.3,0.5-0.6,1-0.6,1.5h3.5v-0.2c0-0.5-0.2-0.9-0.5-1.3
 C686.2,306.6,685.7,306.4,685.3,306.4z" />
         <path
             android:name="book_front_1_"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.6"
             android:strokeAlpha="0.6"
             android:pathData="M 570 203 H 590 V 387 H 570 V 203 Z" />
         <path
             android:name="title_1_"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M574,381v-20h13v20H574z M577,248h7v84h-7V248z" />
         <path
             android:name="a_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M 467 298.9 L 475.5 298.9 L 471.2 286.1 Z" />
         <path
             android:name="p_x5F_fill"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M549.2,283.2h-6.4h-0.1V294h6.3c1.6,0.1,3.1-0.3,4.3-1.3c1.1-1,1.6-2.4,1.5-3.8
 c0-1.5-0.5-3-1.5-4.1C552.2,283.7,550.7,283.1,549.2,283.2z" />
         <path
             android:name="left"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:fillAlpha="0.8"
             android:strokeAlpha="0.8"
             android:pathData="M457,203c-5.5,0-10,4.5-10,10v164c0,5.5,4.5,10,10,10h113V203H457z
@@ -248,7 +248,7 @@ M558.5,296.7c-2.3,1.9-5.5,2.9-9.5,2.9v0h-6.3v12h-7v-34.1H549c2.4-0.1,4.7,0.4,6.8
 c1.9,0.9,3.4,2.3,4.5,4c1.1,1.8,1.6,3.8,1.6,5.9C562.1,291.8,560.8,294.7,558.5,296.7z" />
         <path
             android:name="blue_head_1_"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M620.8,131.3l14-21.7c0.9-1.4,0.5-3.2-0.9-4.1c-1.3-0.9-3.2-0.5-4.1,0.8c0,0,0,0,0,0.1
 l-14.5,22.5c-23-9.3-48.7-9.3-71.6,0l-14.5-22.5c-0.9-1.4-2.7-1.8-4.1-0.9l0,0c-1.4,0.9-1.8,2.7-0.9,4.1l14,21.7
 C513,143.8,496,167.2,496,194.1c0,1.7,0.1,3.3,0.2,4.9h166.5c0.1-1.6,0.2-3.2,0.2-4.9C663,167.2,646,143.8,620.8,131.3z
@@ -257,7 +257,7 @@ z
 M618.1,170.2c-4.4,0-8.1-3.6-8.1-8s3.6-8.1,8-8.1s8.1,3.6,8.1,8l0,0C626.1,166.6,622.5,170.2,618.1,170.2L618.1,170.2z" />
         <path
             android:name="hands_2_"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M713,274c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S722.4,274,713,274z
 M447,274 c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S456.4,274,447,274z" />
     </group>
@@ -265,7 +265,7 @@ M447,274 c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S456.4,274,447,274z" />
         android:name="move_eyes">
         <path
             android:name="eyes"
-            android:fillColor="#FFFFFF"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M618,167.2c-1.2,0-2.2-1-2.2-2.2s1-2.2,2.2-2.2s2.2,1,2.2,2.2S619.2,167.2,618,167.2z
     M541,167.2c-1.2,0-2.2-1-2.2-2.2s1-2.2,2.2-2.2s2.2,1,2.2,2.2S542.2,167.2,541,167.2z" />
     </group>
