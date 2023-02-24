@@ -39,7 +39,7 @@ public class RadioPreference extends CheckBoxPreference {
     public RadioPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setWidgetLayoutResource(R.layout.preference_widget_radiobutton);
-        setLayoutResource(R.layout.preference_radio);
+        setLayoutResource(R.layout.preference_widget_radiobutton);
         setIconSpaceReserved(false);
     }
 }

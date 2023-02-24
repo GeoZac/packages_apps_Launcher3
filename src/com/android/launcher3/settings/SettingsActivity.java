@@ -95,6 +95,7 @@ public class SettingsActivity extends FragmentActivity
     static final String EXTRA_FRAGMENT_ARGS = ":settings:fragment_args";
 
     public static final String KEY_TRUST_APPS = "pref_trust_apps";
+    public static final String KEY_ICON_PACK = "pref_icon_pack";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -299,7 +300,7 @@ public class SettingsActivity extends FragmentActivity
         @Override
         public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
             switch (key) {
-                case IconDatabase.KEY_ICON_PACK:
+                case KEY_ICON_PACK:
                     updatePreferences();
                     break;
             }
@@ -353,7 +354,7 @@ public class SettingsActivity extends FragmentActivity
                     });
                     return true;
 
-                case IconDatabase.KEY_ICON_PACK:
+                case KEY_ICON_PACK:
                     setupIconPackPreference(preference);
                     return true;
             }

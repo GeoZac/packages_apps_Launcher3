@@ -39,7 +39,7 @@
         android:key="pref_app_info_icon_pack"
         android:title="@string/icon_pack_title"
         android:icon="@drawable/ic_app_info_icon_pack"
-        android:persistent="false" /-->
+        android:persistent="false" />
 
     <Preference
         android:key="pref_app_info_more"

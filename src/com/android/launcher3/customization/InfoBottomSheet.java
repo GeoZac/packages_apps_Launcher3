@@ -85,8 +85,8 @@ public class InfoBottomSheet extends WidgetsBottomSheet {
     }
 
     public static class PrefsFragment extends PreferenceFragment
-            implements /*Preference.OnPreferenceChangeListener,*/ Preference.OnPreferenceClickListener {
-//        private static final String KEY_ICON_PACK = "pref_app_info_icon_pack";
+            implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
+       private static final String KEY_ICON_PACK = "pref_app_info_icon_pack";
         private static final String KEY_SOURCE = "pref_app_info_source";
         private static final String KEY_LAST_UPDATE = "pref_app_info_last_update";
         private static final String KEY_VERSION = "pref_app_info_version";
