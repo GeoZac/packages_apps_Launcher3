@@ -190,10 +190,6 @@
             android:title="@string/pref_allow_phone_taskbar_title"
             android:summary="@string/pref_allow_phone_taskbar_summary" />
 
-        <Preference
-            android:key="pref_trust_apps"
-            android:title="@string/trust_apps_manager_name" />
-
     </PreferenceCategory>
 
 <!-- <androidx.preference.PreferenceScreen

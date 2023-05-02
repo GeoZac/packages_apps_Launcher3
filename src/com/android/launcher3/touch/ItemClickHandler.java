@@ -28,7 +28,6 @@ import static com.android.launcher3.util.Executors.UI_HELPER_EXECUTOR;
 
 import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.LauncherApps;
@@ -46,7 +45,6 @@ import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.folder.Folder;
 import com.android.launcher3.folder.FolderIcon;
-import com.android.launcher3.lineage.trust.db.TrustDatabaseHelper;
 import com.android.launcher3.logging.InstanceId;
 import com.android.launcher3.logging.InstanceIdSequence;
 import com.android.launcher3.logging.StatsLogManager;
@@ -351,16 +349,7 @@ public class ItemClickHandler {
             // Preload the icon to reduce latency b/w swapping the floating view with the original.
             FloatingIconView.fetchIcon(launcher, v, item, true /* isOpening */);
         }
-
-        TrustDatabaseHelper db = TrustDatabaseHelper.getInstance(launcher);
-        ComponentName cn = item.getTargetComponent();
-        boolean isProtected = cn != null && db.isPackageProtected(cn.getPackageName());
-
-        if (isProtected) {
-            launcher.startActivitySafelyAuth(v, intent, item);
-        } else {
-            launcher.startActivitySafely(v, intent, item);
-        }
+        launcher.startActivitySafely(v, intent, item);
     }
 
     /**
