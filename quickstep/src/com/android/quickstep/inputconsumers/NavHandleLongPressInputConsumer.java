@@ -15,7 +15,6 @@
  */
 package com.android.quickstep.inputconsumers;
 
-import static com.android.launcher3.LauncherPrefs.LONG_PRESS_NAV_HANDLE_TIMEOUT_MS;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_DEEP_PRESS_NAVBAR;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_DEEP_PRESS_STASHED_TASKBAR;
 import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_LONG_PRESS_NAVBAR;
@@ -63,7 +62,7 @@ public class NavHandleLongPressInputConsumer extends DelegateInputConsumer {
         mScreenWidth = DisplayController.INSTANCE.get(context).getInfo().currentSize.x;
         mDeepPressEnabled = FeatureFlags.ENABLE_LPNH_DEEP_PRESS.get();
         if (FeatureFlags.CUSTOM_LPNH_THRESHOLDS.get()) {
-            mLongPressTimeout = LauncherPrefs.get(context).get(LONG_PRESS_NAV_HANDLE_TIMEOUT_MS);
+            mLongPressTimeout = FeatureFlags.LPNH_TIMEOUT_MS.get();
         } else {
             mLongPressTimeout = ViewConfiguration.getLongPressTimeout();
         }
